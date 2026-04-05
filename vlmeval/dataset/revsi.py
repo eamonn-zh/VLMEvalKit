@@ -1,7 +1,6 @@
 from vlmeval.dataset.video_base import VideoBaseDataset
 from huggingface_hub import hf_hub_download
 from datasets import load_dataset
-from ..smp import get_cache_path
 from ..smp.file import load
 import numpy as np
 import zipfile
@@ -68,10 +67,10 @@ class ReVSI(VideoBaseDataset):
         dataset_table = dataset_table.add_column('video', [f"{x['scene_id']}.mp4" for x in dataset_table])
         df = dataset_table.to_pandas()
         video_zip_path = hf_hub_download(repo_id=REPO_ID, filename="video.zip", repo_type="dataset")
-        dataset_path = get_cache_path(REPO_ID)
+        dataset_path = os.path.dirname(video_zip_path)
         required_subdirs = ["all_frame", "16_frame", "32_frame", "64_frame"]
 
-        if dataset_path is None or not all(
+        if not all(
             os.path.exists(os.path.join(dataset_path, subdir)) for subdir in required_subdirs
         ):
             with zipfile.ZipFile(video_zip_path, "r") as zf:
