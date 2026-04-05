@@ -9,7 +9,7 @@ import os
 
 NQ_QUESTION_TYPES = [
     "object_counting_single",
-    "object_counting_multiple"
+    "object_counting_multiple",
     "object_abs_distance",
     "object_size_estimation",
     "room_size_estimation_single",
