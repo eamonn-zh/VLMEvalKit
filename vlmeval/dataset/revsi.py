@@ -69,11 +69,10 @@ class ReVSI(VideoBaseDataset):
         df = dataset_table.to_pandas()
         video_zip_path = hf_hub_download(repo_id=REPO_ID, filename="video.zip", repo_type="dataset")
         dataset_path = get_cache_path(REPO_ID)
-        if not (
-            os.path.exists(os.path.join(dataset_path, "all_frame")) and
-            os.path.exists(os.path.join(dataset_path, "16_frame")) and
-            os.path.exists(os.path.join(dataset_path, "32_frame")) and
-            os.path.exists(os.path.join(dataset_path, "64_frame"))
+        required_subdirs = ["all_frame", "16_frame", "32_frame", "64_frame"]
+
+        if dataset_path is None or not all(
+            os.path.exists(os.path.join(dataset_path, subdir)) for subdir in required_subdirs
         ):
             with zipfile.ZipFile(video_zip_path, "r") as zf:
                 zf.extractall(dataset_path)
