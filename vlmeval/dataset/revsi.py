@@ -63,7 +63,7 @@ class ReVSI(VideoBaseDataset):
         return ['ReVSI']
 
     def prepare_dataset(self, dataset):
-        subset = f"{self.nframe}_frames"
+        subset = f"{self.nframe}_frame"
         dataset_table = load_dataset(REPO_ID, subset, split="test")
         dataset_table = dataset_table.add_column('video', [f"{x['scene_id']}.mp4" for x in dataset_table])
         df = dataset_table.to_pandas()
