@@ -106,7 +106,7 @@ class ReVSI(VideoBaseDataset):
             elif row["question_type"] in NQ_QUESTION_TYPES:
                 try:
                     accuracy = _mean_relative_accuracy(
-                        float(pred_answer), float(gt_answer), 0.6, 0.95, 0.05
+                        float(pred_answer), float(gt_answer), 0.5, 0.95, 0.05
                     )
                 except:
                     accuracy = 0.0
