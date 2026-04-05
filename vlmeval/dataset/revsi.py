@@ -135,11 +135,11 @@ class ReVSI(VideoBaseDataset):
             output.pop("object_counting_multiple_accuracy"),
         ]
         output["object_counting_accuracy"] = np.mean(obj_count_accs)
-
-        room_size_accs = [
-            output.pop("room_size_estimation_single_accuracy"),
-            output.pop("room_size_estimation_multiple_accuracy"),
-        ]
-        output["room_size_estimation_accuracy"] = np.mean(room_size_accs)
+        if "room_size_estimation_single_accuracy" in output and "room_size_estimation_multiple_accuracy" in output:
+            room_size_accs = [
+                output.pop("room_size_estimation_single_accuracy"),
+                output.pop("room_size_estimation_multiple_accuracy"),
+            ]
+            output["room_size_estimation_accuracy"] = np.mean(room_size_accs)
         output["overall"] = sum(output.values()) / len(output)
         return output
