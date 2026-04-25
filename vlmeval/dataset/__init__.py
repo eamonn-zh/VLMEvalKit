@@ -107,6 +107,7 @@ from .refspatial import RefSpatialDataset
 from .refspatialbench import RefSpatialBench
 from .robospatialbench import RoboSpatialBench
 from .sarena import SArena
+from .scidocbench import SciDocBench
 from .sfebench import SFE
 from .SGI_Bench_1_0.deep_research import SGI_Bench_Deep_Research
 from .SGI_Bench_1_0.dry_experiment import SGI_Bench_Dry_Experiment
@@ -139,6 +140,7 @@ from .video_concat_dataset import ConcatVideoDataset
 from .video_holmes import Video_Holmes
 from .video_mmlu import Video_MMLU_CAP, Video_MMLU_QA
 from .videomme import VideoMME
+from .videommev2 import VideoMMEv2
 from .videommmu import VideoMMMU
 from .videott import VideoTT
 from .viewspatialbench import ViewSpatialBench
@@ -290,7 +292,8 @@ IMAGE_DATASET = [
     UniSVG, SArena, VLMsAreBiased, MMESCIDataset, CoreCognition, GroundingME,
     FoxBench, VTCBench, Asclepius, PlotQA, ChartX, ChartBench, ChartCapDataset, WorldVQA, PuzzleVQA, VisualPuzzles,  # noqa: E501
     MMSafetyBenchDataset, MSSBenchDataset, SIUODataset, SIUOGenDataset, SIUOMCQDataset, M3oralBenchDataset,  # noqa: E501
-    Design2Code, VLADBench, SSIBenchDataset, NPMM, SGI_Bench_Experimental_Reasoning, MMOral_OPG_OPEN, MMOral_OPG_CLOSED  # noqa: E501
+    Design2Code, VLADBench, SSIBenchDataset, NPMM, SGI_Bench_Experimental_Reasoning, MMOral_OPG_OPEN, MMOral_OPG_CLOSED,  # noqa: E501
+    SciDocBench,
 ]
 
 # add by EASI team
@@ -309,7 +312,8 @@ VIDEO_DATASET = [
     QBench_Video, QBench_Video_MCQ, QBench_Video_VQA,
     Video_MMLU_CAP, Video_MMLU_QA,
     Video_Holmes, VCRBench, CGAVCounting,
-    EgoExoBench_MCQ, DREAM, VideoTT, VideoMMMU, MVUEval, OMTGBench, V2PBench, AVSpeakerBench, ReVSI
+    EgoExoBench_MCQ, DREAM, VideoTT, VideoMMMU, MVUEval, OMTGBench, V2PBench, AVSpeakerBench,
+    VideoMMEv2, ReVSI
 ]
 
 # add by EASI team
